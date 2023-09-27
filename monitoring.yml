@@ -29,21 +29,6 @@ services:
     restart: unless-stopped
 
 
-#  cadvisor:
-#    image: google/cadvisor:latest
-#    container_name: cadvisor
-    # ports:
-    #   - "8080:8080"
-#    volumes:
-#      - /:/rootfs:ro
-#      - /var/run:/var/run:ro
-#      - /sys:/sys:ro
-#      - /var/lib/docker/:/var/lib/docker:ro
-#      - /dev/disk/:/dev/disk:ro
-#    devices:
-#      - /dev/kmsg
-#    restart: unless-stopped
-
   node_exporter:
     image: prom/node-exporter
     container_name: prom_node_exporter
@@ -73,6 +58,7 @@ services:
       - /var/lib/docker/:/var/lib/docker:ro
     depends_on:
       - redis
+
   
   redis:
     image: redis:latest
